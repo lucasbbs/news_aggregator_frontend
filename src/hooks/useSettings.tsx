@@ -23,13 +23,14 @@ const useSettings = () => {
             if (!user) return
             setLoading(true);
             const [{ data: favoriteCategories }, { data: favoriteTags }, { data: userFavorites }] = await Promise.all([await getUserFavorites(), await getTags(), await getSettings()])
-            const NYTSettings = userFavorites.find((s: any) => s.source_id === 1)
-            const GUASettings = userFavorites.find((s: any) => s.source_id === 2)
-            
-            const favoritesNYT =  NYTSettings ? favoriteCategories.find((d: any) => d.source_id === NYTSettings?.id) : []
-            const availableDataNYT = sourceCategories.filter((s) => s.source_id === 2 && favoritesNYT?.id !== s.id)
-            const favoritesGUA = GUASettings ? favoriteCategories.find((d: any) => d.source_id === GUASettings?.id) : []
+            const GUASettings = userFavorites.find((s: any) => s.source_id === 1)
+            const NYTSettings = userFavorites.find((s: any) => s.source_id === 2)
+
+            const favoritesNYT =  favoriteCategories.find((d: any) => d.source_id === NYTSettings?.source_id)
+            const favoritesGUA = favoriteCategories.find((d: any) => d.source_id === GUASettings?.source_id)
+
             const availableDataGUA = sourceCategories.filter((s) => s.source_id === 1 && favoritesGUA?.id !== s.id)
+            const availableDataNYT = sourceCategories.filter((s) => s.source_id === 2 && favoritesNYT?.id !== s.id)
             setData({ 
                 favoritesNYT, favoritesGUA, availableDataNYT, availableDataGUA, categories: favoriteTags, NYTSettings, GUASettings
             })

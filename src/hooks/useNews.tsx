@@ -10,11 +10,11 @@ import { News, NewsContextProps, NewsResponse, ProviderProps, SearchParams } fro
 
 const NewsContext = createContext<NewsContextProps>({} as NewsContextProps)
 
-const currentDate = new Date()
-const lastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate())
 
 const useNews = () => {
-
+    
+    const currentDate = new Date()
+    const lastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate())
     const { nyt_page, gua_page, new_page, page, category: category_param, search: search_param } = queryString.parse(window.location.search)
     const [category, setCategory] = useState('')
     const [location, setLocation] = useState<null|string>(null)

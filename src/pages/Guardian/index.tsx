@@ -37,7 +37,7 @@ const Guardian = () => {
                 <ArticlesSection>
                   {source.news?.map((article, index) => (
                     <ArticleCard
-                      isSearchCard={true}
+                      isSearchCard={false}
                       key={article.title}
                       category={article.category}
                       publishedAt={article.date}

@@ -32,6 +32,8 @@ function Search() {
     setLocation(routes.SearchPath.relativePath)
   }, [setLocation])
 
+  console.log({searchParams})
+
   return (
     <StyledWrapper>
       <StyledForm onSubmit={handleSubmit}>

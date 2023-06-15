@@ -30,7 +30,7 @@ function Settings() {
   const handleSubmitCategories = async (e: React.FormEvent<HTMLFormElement>, category: any, sourceId: number) => {
     e.preventDefault()
     try {
-      await Promise.all([await saveUserFavorites(category.id, sourceId), await createSettings(sourceId, (e.target as HTMLFormElement).sort?.value, (e.target as HTMLFormElement).source?.value)])
+      await Promise.all([await saveUserFavorites(category?.id, sourceId), await createSettings(sourceId, (e.target as HTMLFormElement).sort?.value, (e.target as HTMLFormElement).source?.value)])
       showMessage('Favorites saved successfully', 'success')
     } catch (error) {
       console.log(error)
@@ -119,7 +119,7 @@ function Settings() {
           <FormContainer onSubmit={(e) => handleSubmitCategories(e, data.favoritesNYT, 2)}>
             <Autocomplete
               value={data.favoritesNYT}
-              onChange={(event: React.SyntheticEvent<Element, Event>, newValue: any[]) => {
+              onChange={(event: React.SyntheticEvent<Element, Event>, newValue: any) => {
                 setData({ ...data, favoritesNYT: newValue })
               }}
               filterSelectedOptions
