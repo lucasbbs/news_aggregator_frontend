@@ -42,12 +42,12 @@ To set up and run the frontend project locally using Docker, follow these steps:
 1. Clone the project repository from GitHub to your local machine.
 
 ```bash
-git clone https://github.com/lucasbbs/news_aggregator_challenge_frontend.git
+git clone https://github.com/lucasbbs/news_aggregator_frontend.git
 ```
 2. Change directory into the newly created folder.
 
 ```bash
-cd news_aggregator_challenge_frontend
+cd news_aggregator_frontend
 ```
 
 3. Install all required dependencies
